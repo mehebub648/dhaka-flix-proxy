@@ -111,6 +111,23 @@
         #tree > .item > .content > .item.folder > a > .label {
             font-weight: 700;
         }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            /* Hide date and size columns to give the filename full width */
+            #view.view-details .date,
+            #view.view-details .size {
+                display: none !important;
+            }
+            #view.view-details .label {
+                right: 10px !important;
+                width: auto !important;
+                margin-right: 0 !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+            }
+        }
     </style>
 </head>
 <body class="index" id="root">
@@ -481,18 +498,27 @@
             sidebar.classList.toggle('hidden');
         });
 
-        // Tree toggle on indicators - collapse/expand folders
+        // Tree toggle on indicators and server links - collapse/expand folders
         document.querySelectorAll('#tree .item.folder').forEach(function(folder) {
             var indicator = folder.querySelector(':scope > .indicator');
             if (!indicator) return;
             // Only allow toggle if folder has a .content child
             var content = folder.querySelector(':scope > .content');
             if (!content) return;
-            indicator.addEventListener('click', function(e) {
+
+            var toggleFolder = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 folder.classList.toggle('open');
-            });
+            };
+
+            indicator.addEventListener('click', toggleFolder);
+
+            // Also toggle when clicking the folder link (e.g. server names), except root
+            var link = folder.querySelector(':scope > a');
+            if (link && link.getAttribute('href') !== '/') {
+                link.addEventListener('click', toggleFolder);
+            }
         });
     </script>
 </body>
