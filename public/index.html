@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>waba.actionsender.com - Dhaka Flix</title>
+    <meta name="description" content="Dhaka Flix - File Index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/_h5ai/public/images/favicon/favicon-16-32.ico">
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="/_h5ai/public/images/favicon/favicon-152.png">
+    <link rel="stylesheet" href="/_h5ai/public/css/styles.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:300,400,700%7CUbuntu+Mono:400,700">
+    <style>
+        #root, input, select {
+            font-family: "Ubuntu","Roboto","Helvetica","Arial","sans-serif" !important;
+        }
+        pre, code {
+            font-family: "Ubuntu Mono","Monaco","Lucida Sans Typewriter","monospace" !important;
+        }
+        #view.view-details.view-size-20 .item .label { line-height: 34px !important; }
+        #view.view-details.view-size-20 .item .date { line-height: 34px !important; }
+        #view.view-details.view-size-20 .item .size { line-height: 34px !important; }
+        #view.view-details.view-size-20 .square { width: 20px !important; height: 20px !important; }
+        #view.view-details.view-size-20 .square img { width: 20px !important; height: 20px !important; }
+        #view.view-details.view-size-20 .label { margin-left: 52px !important; }
+        #view .icon img { max-width: 40px; max-height: 40px; }
+
+        /* Server group headings */
+        .server-group {
+            padding: 0;
+            margin: 0;
+        }
+        .server-group-header {
+            background: #f0f0f0;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .server-group-header:hover {
+            background: #e8e8e8;
+        }
+        .server-group-header .server-ip {
+            font-weight: 400;
+            color: #999;
+            font-size: 11px;
+            margin-left: 4px;
+        }
+        .server-group-header .toggle-icon {
+            transition: transform 0.2s;
+            width: 10px;
+            height: 10px;
+        }
+        .server-group-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+        .server-group-items {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .server-group-items.collapsed {
+            max-height: 0 !important;
+        }
+
+        /* Tree: server groups */
+        #tree .server-tree-group > .content {
+            padding-left: 12px;
+        }
+    </style>
+</head>
+<body class="index" id="root">
+    <div id="topbar">
+        <div id="toolbar">
+            <div id="sidebar-toggle" class="tool">
+                <img alt="sidebar" src="/_h5ai/public/images/ui/sidebar.svg">
+            </div>
+            <div id="search" class="tool">
+                <img src="/_h5ai/public/images/ui/search.svg" alt="search">
+                <input class="l10n_ph-search" type="text" value="" placeholder="search">
+            </div>
+        </div>
+        <div id="flowbar">
+            <div id="crumbbar">
+                <a class="crumb active" href="/">
+                    <img class="sep" src="/_h5ai/public/images/ui/crumb.svg" alt="&gt;">
+                    <span class="label">waba.actionsender.com</span>
+                    <img class="hint" src="/_h5ai/public/images/themes/default/folder-page.svg" alt="has index page">
+                </a>
+            </div>
+        </div>
+        <a id="backlink" href="/" title="powered by Dhaka Flix">
+            <div>powered</div>
+            <div>by Dhaka Flix</div>
+        </a>
+    </div>
+
+    <div id="mainrow">
+        <div id="content">
+            <div id="content-header" class="hidden"></div>
+            <div id="view" class="view-details view-size-20">
+                <ul id="items" class="clearfix">
+                    <li class="header">
+                        <a class="icon"></a>
+                        <a class="label ascending" href="#"><span class="l10n-name">Name</span><img src="/_h5ai/public/images/ui/sort.svg" class="sort" alt="sort order"></a>
+                        <a class="date" href="#"><img src="/_h5ai/public/images/ui/sort.svg" class="sort" alt="sort order"><span class="l10n-lastModified">Last modified</span></a>
+                        <a class="size" href="#"><img src="/_h5ai/public/images/ui/sort.svg" class="sort" alt="sort order"><span class="l10n-size">Size</span></a>
+                    </li>
+
+                    <!-- ===== DHAKA-FLIX-7 ===== -->
+                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                        <span class="label" title="DHAKA-FLIX-7">DHAKA-FLIX-7 <span class="server-ip">(172.16.50.7)</span></span>
+                        <span class="date"></span>
+                        <span class="size"></span>
+                    </li>
+
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-7/3D%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="3D Movies">3D Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-7/English%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="English Movies">English Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-7/Foreign%20Language%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Foreign Language Movies">Foreign Language Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Kolkata Bangla Movies">Kolkata Bangla Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+
+                    <!-- ===== DHAKA-FLIX-8 ===== -->
+                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                        <span class="label" title="DHAKA-FLIX-8">DHAKA-FLIX-8 <span class="server-ip">(172.16.50.8)</span></span>
+                        <span class="date"></span>
+                        <span class="size"></span>
+                    </li>
+
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-8/Android%20Games/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Android Games">Android Games</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-8/Console%20Games/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Console Games">Console Games</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-8/PC%20Games/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="PC Games">PC Games</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-8/Software/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Software">Software</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+
+                    <!-- ===== DHAKA-FLIX-9 ===== -->
+                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                        <span class="label" title="DHAKA-FLIX-9">DHAKA-FLIX-9 <span class="server-ip">(172.16.50.9)</span></span>
+                        <span class="date"></span>
+                        <span class="size"></span>
+                    </li>
+
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Anime &amp; Cartoon TV Series">Anime &amp; Cartoon TV Series</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Awards &amp; TV Shows">Awards &amp; TV Shows</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-9/Documentary/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Documentary">Documentary</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-9/Tutorial/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Tutorial">Tutorial</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="WWE &amp; AEW Wrestling">WWE &amp; AEW Wrestling</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+
+                    <!-- ===== DHAKA-FLIX-12 ===== -->
+                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                        <span class="label" title="DHAKA-FLIX-12">DHAKA-FLIX-12 <span class="server-ip">(172.16.50.12)</span></span>
+                        <span class="date"></span>
+                        <span class="size"></span>
+                    </li>
+
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-12/TV-WEB-Series/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="TV-WEB-Series">TV-WEB-Series</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+
+                    <!-- ===== DHAKA-FLIX-14 ===== -->
+                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                        <span class="label" title="DHAKA-FLIX-14">DHAKA-FLIX-14 <span class="server-ip">(172.16.50.14)</span></span>
+                        <span class="date"></span>
+                        <span class="size"></span>
+                    </li>
+
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/Animation%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Animation Movies">Animation Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/Animation%20Movies%20(1080p)/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Animation Movies (1080p)">Animation Movies (1080p)</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/English%20Movies%20(1080p)/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="English Movies (1080p)">English Movies (1080p)</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/Hindi%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="Hindi Movies">Hindi Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/IMDb%20Top-250%20Movies/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="IMDb Top-250 Movies">IMDb Top-250 Movies</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="KOREAN TV &amp; WEB Series">KOREAN TV &amp; WEB Series</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                    <li class="item folder">
+                        <a href="/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/">
+                            <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                            <span class="label" title="SOUTH INDIAN MOVIES">SOUTH INDIAN MOVIES</span>
+                            <span class="date"></span>
+                            <span class="size"></span>
+                        </a>
+                    </li>
+                </ul>
+                <div id="view-hint" class="l10n-empty hidden">empty</div>
+            </div>
+            <div id="content-footer" class="hidden"></div>
+        </div>
+
+        <div id="sidebar" class="hidden">
+            <div id="viewmode-settings" class="block">
+                <h1 class="l10n-view">View</h1>
+                <div id="viewmode-details" class="button mode active">
+                    <img src="/_h5ai/public/images/ui/view-details.svg" alt="viewmode-details">
+                </div>
+                <div id="viewmode-grid" class="button mode">
+                    <img src="/_h5ai/public/images/ui/view-grid.svg" alt="viewmode-grid">
+                </div>
+                <div id="viewmode-icons" class="button mode">
+                    <img src="/_h5ai/public/images/ui/view-icons.svg" alt="viewmode-icons">
+                </div>
+                <input id="viewmode-size" type="range" min="0" max="9" value="0">
+            </div>
+            <div class="block">
+                <h1 class="l10n-tree">Tree</h1>
+                <div id="view-tree" class="button view active">
+                    <img src="/_h5ai/public/images/ui/tree-toggle.svg" alt="view-tree">
+                </div>
+            </div>
+        </div>
+
+        <div id="tree" class="">
+            <div class="item folder open">
+                <span class="indicator">
+                    <img src="/_h5ai/public/images/ui/tree-indicator.svg">
+                </span>
+                <a href="/">
+                    <span class="icon"><img src="/_h5ai/public/images/themes/default/folder-page.svg"></span>
+                    <span class="label">waba.actionsender.com</span>
+                </a>
+                <div class="content">
+                    <!-- DHAKA-FLIX-7 tree -->
+                    <div class="item folder">
+                        <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
+                        <a href="/DHAKA-FLIX-7/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-7</span></a>
+                        <div class="content">
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-7/3D%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">3D Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-7/English%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">English Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-7/Foreign%20Language%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Foreign Language Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Kolkata Bangla Movies</span></a></div>
+                        </div>
+                    </div>
+                    <!-- DHAKA-FLIX-8 tree -->
+                    <div class="item folder">
+                        <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
+                        <a href="/DHAKA-FLIX-8/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-8</span></a>
+                        <div class="content">
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-8/Android%20Games/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Android Games</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-8/Console%20Games/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Console Games</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-8/PC%20Games/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">PC Games</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-8/Software/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Software</span></a></div>
+                        </div>
+                    </div>
+                    <!-- DHAKA-FLIX-9 tree -->
+                    <div class="item folder">
+                        <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
+                        <a href="/DHAKA-FLIX-9/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-9</span></a>
+                        <div class="content">
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Anime &amp; Cartoon TV Series</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Awards &amp; TV Shows</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-9/Documentary/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Documentary</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-9/Tutorial/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Tutorial</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">WWE &amp; AEW Wrestling</span></a></div>
+                        </div>
+                    </div>
+                    <!-- DHAKA-FLIX-12 tree -->
+                    <div class="item folder">
+                        <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
+                        <a href="/DHAKA-FLIX-12/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-12</span></a>
+                        <div class="content">
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-12/TV-WEB-Series/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">TV-WEB-Series</span></a></div>
+                        </div>
+                    </div>
+                    <!-- DHAKA-FLIX-14 tree -->
+                    <div class="item folder">
+                        <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
+                        <a href="/DHAKA-FLIX-14/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-14</span></a>
+                        <div class="content">
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/Animation%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Animation Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/Animation%20Movies%20(1080p)/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Animation Movies (1080p)</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/English%20Movies%20(1080p)/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">English Movies (1080p)</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/Hindi%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">Hindi Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/IMDb%20Top-250%20Movies/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">IMDb Top-250 Movies</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">KOREAN TV &amp; WEB Series</span></a></div>
+                            <div class="item folder unknown"><span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span><a href="/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">SOUTH INDIAN MOVIES</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Client-side search filter
+        document.querySelector('#search input').addEventListener('input', function(e) {
+            var query = e.target.value.toLowerCase();
+            var items = document.querySelectorAll('#items > li.item:not(.server-group-header)');
+            items.forEach(function(item) {
+                var label = item.querySelector('.label');
+                if (!label) return;
+                var text = label.textContent.toLowerCase();
+                item.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
+            });
+        });
+
+        // Sidebar toggle
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+
+        // Tree toggle on indicators
+        document.querySelectorAll('#tree .indicator').forEach(function(ind) {
+            ind.addEventListener('click', function() {
+                var parent = ind.closest('.item');
+                if (parent) parent.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
