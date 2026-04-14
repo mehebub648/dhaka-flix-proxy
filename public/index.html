@@ -68,9 +68,48 @@
             max-height: 0 !important;
         }
 
-        /* Tree: server groups */
-        #tree .server-tree-group > .content {
-            padding-left: 12px;
+        /* Tree collapse/expand */
+        #tree .item.folder > .content {
+            display: none;
+        }
+        #tree .item.folder.open > .content {
+            display: block;
+        }
+        #tree .item.folder > .indicator {
+            cursor: pointer;
+        }
+        #tree .item.folder > .indicator img {
+            transition: transform 0.2s;
+            transform: rotate(-90deg);
+        }
+        #tree .item.folder.open > .indicator img {
+            transform: rotate(0deg);
+        }
+
+        /* Server group headers in main view */
+        .server-group-header {
+            background: #f5f5f5 !important;
+            border-top: 2px solid #ccc !important;
+            pointer-events: none;
+        }
+        .server-group-header .label {
+            font-weight: 700 !important;
+            font-size: 13px !important;
+            color: #333 !important;
+            letter-spacing: 0.3px;
+        }
+        .server-group-header .server-ip {
+            font-weight: 400;
+            color: #999;
+            font-size: 11px;
+        }
+        .server-group-header .square img {
+            filter: hue-rotate(180deg) saturate(1.5) brightness(0.7);
+        }
+
+        /* Tree server-level label bold */
+        #tree > .item > .content > .item.folder > a > .label {
+            font-weight: 700;
         }
     </style>
 </head>
@@ -113,8 +152,8 @@
                     </li>
 
                     <!-- ===== DHAKA-FLIX-7 ===== -->
-                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
-                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                    <li class="item folder server-group-header">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder-page.svg" alt="server"></span>
                         <span class="label" title="DHAKA-FLIX-7">DHAKA-FLIX-7 <span class="server-ip">(172.16.50.7)</span></span>
                         <span class="date"></span>
                         <span class="size"></span>
@@ -154,8 +193,8 @@
                     </li>
 
                     <!-- ===== DHAKA-FLIX-8 ===== -->
-                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
-                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                    <li class="item folder server-group-header">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder-page.svg" alt="server"></span>
                         <span class="label" title="DHAKA-FLIX-8">DHAKA-FLIX-8 <span class="server-ip">(172.16.50.8)</span></span>
                         <span class="date"></span>
                         <span class="size"></span>
@@ -195,8 +234,8 @@
                     </li>
 
                     <!-- ===== DHAKA-FLIX-9 ===== -->
-                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
-                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                    <li class="item folder server-group-header">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder-page.svg" alt="server"></span>
                         <span class="label" title="DHAKA-FLIX-9">DHAKA-FLIX-9 <span class="server-ip">(172.16.50.9)</span></span>
                         <span class="date"></span>
                         <span class="size"></span>
@@ -244,8 +283,8 @@
                     </li>
 
                     <!-- ===== DHAKA-FLIX-12 ===== -->
-                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
-                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                    <li class="item folder server-group-header">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder-page.svg" alt="server"></span>
                         <span class="label" title="DHAKA-FLIX-12">DHAKA-FLIX-12 <span class="server-ip">(172.16.50.12)</span></span>
                         <span class="date"></span>
                         <span class="size"></span>
@@ -261,8 +300,8 @@
                     </li>
 
                     <!-- ===== DHAKA-FLIX-14 ===== -->
-                    <li class="item folder server-group-header" onclick="toggleGroup(this)">
-                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder.svg" alt="folder"></span>
+                    <li class="item folder server-group-header">
+                        <span class="icon square"><img src="/_h5ai/public/images/themes/default/folder-page.svg" alt="server"></span>
                         <span class="label" title="DHAKA-FLIX-14">DHAKA-FLIX-14 <span class="server-ip">(172.16.50.14)</span></span>
                         <span class="date"></span>
                         <span class="size"></span>
@@ -363,7 +402,7 @@
                 </a>
                 <div class="content">
                     <!-- DHAKA-FLIX-7 tree -->
-                    <div class="item folder">
+                    <div class="item folder open">
                         <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
                         <a href="/DHAKA-FLIX-7/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-7</span></a>
                         <div class="content">
@@ -374,7 +413,7 @@
                         </div>
                     </div>
                     <!-- DHAKA-FLIX-8 tree -->
-                    <div class="item folder">
+                    <div class="item folder open">
                         <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
                         <a href="/DHAKA-FLIX-8/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-8</span></a>
                         <div class="content">
@@ -385,7 +424,7 @@
                         </div>
                     </div>
                     <!-- DHAKA-FLIX-9 tree -->
-                    <div class="item folder">
+                    <div class="item folder open">
                         <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
                         <a href="/DHAKA-FLIX-9/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-9</span></a>
                         <div class="content">
@@ -397,7 +436,7 @@
                         </div>
                     </div>
                     <!-- DHAKA-FLIX-12 tree -->
-                    <div class="item folder">
+                    <div class="item folder open">
                         <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
                         <a href="/DHAKA-FLIX-12/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-12</span></a>
                         <div class="content">
@@ -405,7 +444,7 @@
                         </div>
                     </div>
                     <!-- DHAKA-FLIX-14 tree -->
-                    <div class="item folder">
+                    <div class="item folder open">
                         <span class="indicator"><img src="/_h5ai/public/images/ui/tree-indicator.svg"></span>
                         <a href="/DHAKA-FLIX-14/"><span class="icon"><img src="/_h5ai/public/images/themes/default/folder.svg"></span><span class="label">DHAKA-FLIX-14</span></a>
                         <div class="content">
@@ -442,11 +481,17 @@
             sidebar.classList.toggle('hidden');
         });
 
-        // Tree toggle on indicators
-        document.querySelectorAll('#tree .indicator').forEach(function(ind) {
-            ind.addEventListener('click', function() {
-                var parent = ind.closest('.item');
-                if (parent) parent.classList.toggle('open');
+        // Tree toggle on indicators - collapse/expand folders
+        document.querySelectorAll('#tree .item.folder').forEach(function(folder) {
+            var indicator = folder.querySelector(':scope > .indicator');
+            if (!indicator) return;
+            // Only allow toggle if folder has a .content child
+            var content = folder.querySelector(':scope > .content');
+            if (!content) return;
+            indicator.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                folder.classList.toggle('open');
             });
         });
     </script>
