@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  reverse-proxy:
+    build: .
+    container_name: reverse-proxy
+    restart: always
+    ports:
+      # Automatically binds the host port to the container port defined in .env (defaults to 4001)
+      - "${PORT:-4001}:${PORT:-4001}"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      # Configures the startup/restart delay (in seconds) to prevent fast crash loops
+      - STARTUP_DELAY=3
