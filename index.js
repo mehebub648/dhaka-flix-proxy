@@ -76,34 +76,28 @@ app.use((req, res, next) => {
     }
 });
 
+// URL rewriting for relative _h5ai requests (e.g. from subpaths)
+app.use((req, res, next) => {
+    if (req.url.includes('/_h5ai')) {
+        const index = req.url.indexOf('/_h5ai');
+        req.url = req.url.substring(index);
+    }
+    next();
+});
+
 // Serve local static assets first (including cached _h5ai assets)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fallback: proxy _h5ai requests to upstream if not found locally
 app.use('/_h5ai', createProxyMiddleware({
     target: UPSTREAM_TARGET,
-    changeOrigin: true,
-    on: {
-        proxyRes: (proxyRes, req, res) => {
-            proxyRes.headers['x-robots-tag'] = 'noindex, nofollow, noarchive, nosnippet';
-        }
-    }
-}));
-
-// Proxy routes for DHAKA-FLIX servers
-app.use('/DHAKA-FLIX-:id', createProxyMiddleware({
-    target: UPSTREAM_TARGET, // Fallback target
     router: (req) => {
-        // Robust parameter matching (works with express v4 and v5 path parameters or raw URL extraction)
-        let id = req.params.id;
-        if (!id) {
-            const match = req.originalUrl.match(/\/DHAKA-FLIX-(\d+)/i);
-            if (match) {
-                id = match[1];
-            }
-        }
-        if (id) {
-            return `http://172.16.50.${id}/DHAKA-FLIX-${id}`;
+        // Extract server ID from Referer header to route _h5ai requests to the correct upstream server
+        const referer = decodeURIComponent(req.headers.referer || '');
+        const match = referer.match(/\/DHAKA[-_ ]FLIX[-_ ](\d+)/i);
+        if (match) {
+            const id = match[1];
+            return `http://172.16.50.${id}`;
         }
         return UPSTREAM_TARGET;
     },
@@ -114,6 +108,39 @@ app.use('/DHAKA-FLIX-:id', createProxyMiddleware({
         }
     }
 }));
+
+// Proxy routes for DHAKA-FLIX servers (supporting hyphens, spaces, and underscores)
+app.use(
+    ['/DHAKA-FLIX-:id', '/DHAKA FLIX :id', '/DHAKA_FLIX_:id'],
+    createProxyMiddleware({
+        target: UPSTREAM_TARGET, // Fallback target
+        router: (req) => {
+            // Robust parameter matching (works with express path parameters or raw URL extraction)
+            let id = req.params.id;
+            if (!id) {
+                const decodedUrl = decodeURIComponent(req.originalUrl);
+                const match = decodedUrl.match(/\/DHAKA[-_ ]FLIX[-_ ](\d+)/i);
+                if (match) {
+                    id = match[1];
+                }
+            }
+            if (id) {
+                // Extract the exact matched prefix to preserve spacing/hyphenation style in proxying
+                const decodedUrl = decodeURIComponent(req.originalUrl);
+                const match = decodedUrl.match(/\/DHAKA[-_ ]FLIX[-_ ]\d+/i);
+                const matchedPrefix = match ? match[0] : `/DHAKA-FLIX-${id}`;
+                return `http://172.16.50.${id}${matchedPrefix}`;
+            }
+            return UPSTREAM_TARGET;
+        },
+        changeOrigin: true,
+        on: {
+            proxyRes: (proxyRes, req, res) => {
+                proxyRes.headers['x-robots-tag'] = 'noindex, nofollow, noarchive, nosnippet';
+            }
+        }
+    })
+);
 
 app.listen(PORT, () => {
     console.log(`Proxy running at http://localhost:${PORT}`);
