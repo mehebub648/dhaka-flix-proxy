@@ -89,7 +89,8 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fallback: proxy _h5ai requests to upstream if not found locally
-app.use('/_h5ai', createProxyMiddleware({
+app.use(createProxyMiddleware({
+    pathFilter: '/_h5ai',
     target: UPSTREAM_TARGET,
     router: (req) => {
         // Extract server ID from Referer header to route _h5ai requests to the correct upstream server
